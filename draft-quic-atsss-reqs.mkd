@@ -37,8 +37,10 @@ normative:
   RFC2119:
   
 informative:
+  I-D.ietf-tcpm-converters:
   I-D.deconinck-quic-multipath:
   I-D.amend-tsvwg-multipath-dccp:
+  I-D.boucadair-mptcp-plain-mode:
   TS23501:
     author:
       - ins: 3GPP (3rd Generation Partnership Project)
