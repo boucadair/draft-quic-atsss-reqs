@@ -436,8 +436,7 @@ along the path between UE and the remote endpoint.
 Several proposals to carry non-TCP traffic were discussed, including
 using TCP {{I-D.boucadair-mptcp-plain-mode}} or
 defining multipath extensions to DCCP {{I-D.amend-tsvwg-multipath-dccp}}.
-The work within 3GPP now focuses on using QUIC as the baseline for the second
-version of ATSSS.
+The work within 3GPP now focuses on using QUIC as the baseline for an additional ATSSS data plane protocol.
 
 ## QUIC as an ATSSS Data Plane Protocol 
 
@@ -459,7 +458,7 @@ A first approach is to use QUIC version 1 {{I-D.ietf-quic-transport}} with the U
 In this case, there is one QUIC session between the UE and the ATSSS proxy function.
 This QUIC session uses only one access network at a time. Thanks to the
 connection migration capability of QUIC, it is possible to support the
-switching and steering functions of ATSSS, but splitting cannot be supported.  
+switching and steering functions of ATSSS, but splitting cannot be supported. The use of a single persistent connection is likely to drain battery consumption because of the required keepalive messages to maintain the connection. If the single connection is not pre-established, an extra delay will be experience before sending data over the connection.  
 
 A second candidate solution is to also use QUIC version 1 with the Unreliable Datagram Extension, but with one QUIC session over each access network. By using
 two QUIC sessions, it becomes possible to support steering by selecting
@@ -477,7 +476,7 @@ over each access network, data sent over a congested session could delay the
 delivery of subsequent data over the other session. Another difficulty
 with the utilization of independent QUIC sessions is that when load balancers
 are used to implement the ATSSS UPF, two QUIC sessions addressed to the
-same ATSSS UPF will not necessarily be handled by the same server.
+same ATSSS UPF will not necessarily be handled by the same server. This candidate solution suffers from the same issues as the first one (mainly, battery consumption).
 
 -- Med: I don't parse the sentence with laod-balancers implementing the ATSSS UPF. 
 
