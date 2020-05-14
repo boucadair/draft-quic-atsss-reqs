@@ -458,7 +458,7 @@ A first approach is to use QUIC version 1 {{I-D.ietf-quic-transport}} with the U
 In this case, there is one QUIC session between the UE and the ATSSS proxy function.
 This QUIC session uses only one access network at a time. Thanks to the
 connection migration capability of QUIC, it is possible to support the
-switching and steering functions of ATSSS, but splitting cannot be supported. The use of a single persistent connection is likely to drain battery consumption because of the required keepalive messages to maintain the connection. If the single connection is not pre-established, an extra delay will be experience before sending data over the connection.  
+switching and steering functions of ATSSS, but splitting cannot be supported. The use of a single persistent connection is likely to drain battery consumption because of the required keepalive messages to maintain the connection. If the single connection is not pre-established, an extra delay will be experienced before sending data over the connection.  
 
 A second candidate solution is to also use QUIC version 1 with the Unreliable Datagram Extension, but with one QUIC session over each access network. By using
 two QUIC sessions, it becomes possible to support steering by selecting
